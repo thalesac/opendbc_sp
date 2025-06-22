@@ -176,6 +176,12 @@ class CAR(Platforms):
     {Bus.pt: 'honda_civic_ex_2022_can_generated'},
     flags=HondaFlags.BOSCH_RADARLESS,
   )
+  HONDA_CITY = HondaBoschPlatformConfig(
+    [HondaCarDocs("Honda City (Brazil only) 2023", "All")],
+    CarSpecs(mass=3125 * CV.LB_TO_KG, wheelbase=2.7, steerRatio=13.0, centerToFrontRatio=0.41, tireStiffnessFactor=0.5, minSteerSpeed=23. * CV.KPH_TO_MS),
+    {Bus.pt: 'honda_civic_ex_2022_can_generated'},
+    flags=HondaFlags.BOSCH_RADARLESS,
+  )
   HONDA_CRV_5G = HondaBoschPlatformConfig(
     [HondaCarDocs("Honda CR-V 2017-22", min_steer_speed=12. * CV.MPH_TO_MS)],
     # steerRatio: 12.3 is spec end-to-end
@@ -338,9 +344,9 @@ FW_QUERY_CONFIG = FwQueryConfig(
   # Note that we still attempt to match with them when they are present
   # This is or'd with (ALL_ECUS - ESSENTIAL_ECUS) from fw_versions.py
   non_essential_ecus={
-    Ecu.eps: [CAR.ACURA_RDX_3G, CAR.HONDA_ACCORD, CAR.HONDA_CIVIC_2022, CAR.HONDA_E, CAR.HONDA_HRV_3G],
+    Ecu.eps: [CAR.ACURA_RDX_3G, CAR.HONDA_ACCORD, CAR.HONDA_CIVIC_2022, CAR.HONDA_E, CAR.HONDA_HRV_3G, CAR.HONDA_CITY],
     Ecu.vsa: [CAR.ACURA_RDX_3G, CAR.HONDA_ACCORD, CAR.HONDA_CIVIC, CAR.HONDA_CIVIC_BOSCH, CAR.HONDA_CIVIC_2022, CAR.HONDA_CRV_5G, CAR.HONDA_CRV_HYBRID,
-              CAR.HONDA_E, CAR.HONDA_HRV_3G, CAR.HONDA_INSIGHT],
+              CAR.HONDA_E, CAR.HONDA_HRV_3G, CAR.HONDA_INSIGHT, CAR.HONDA_CITY],
   },
   extra_ecus=[
     (Ecu.combinationMeter, 0x18da60f1, None),
